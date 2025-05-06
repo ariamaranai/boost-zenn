@@ -1,0 +1,10 @@
+#share,
+.ArticleComments_commentForm__b1KSY,
+.ArticleSidebar_zennPrContainer__VFiIp,
+.FollowButton_button__lapNm,
+.SendBadgeCta_container__peDjp,
+.View_stickyShare__TsaVf,
+.SidebarUserBio_container__iWemi ~ *,
+footer {
+  display: none !important
+}
