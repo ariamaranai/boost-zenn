@@ -1,5 +1,5 @@
 {
-let listener = EventTarget.prototype.addEventListener;
+let f = EventTarget.prototype.addEventListener;
 EventTarget.prototype.addEventListener = function (a, b, c) {
   switch (a) {
     case "animationend":
@@ -51,7 +51,7 @@ EventTarget.prototype.addEventListener = function (a, b, c) {
     case "volumechange":
       return 0;
     default:
-      return listener.call(this, a, b, c);
+      return f.call(this, a, b, c);
   }
 }
 }
