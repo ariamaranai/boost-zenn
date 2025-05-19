@@ -1,14 +1,15 @@
+Object.prototype.hasOwnProperty = function (a) { return a in this }
+Object.prototype.hasOwnProperty.call = (a, b) => b in a;
 {
-  Object.prototype.hasOwnProperty = function (a) { return a in this }
-  Object.prototype.hasOwnProperty.call = (a, b) => b in a;
-
   let f = EventTarget.prototype.addEventListener;
   EventTarget.prototype.addEventListener = function (a, b, c) {
     switch (a) {
+      case "afterprint":
       case "animationend":
       case "animationiteration":
       case "animationstart":
       case "auxclick":
+      case "beforeprint":
       case "blur":
       case "contextmenu":
       case "dblclick":
@@ -44,6 +45,7 @@
       case "pointerout":
       case "pointerover":
       case "pointerup":
+      case "scroll":
       case "selectionchange":
       case "test":
       case "touchcancel":
@@ -54,6 +56,7 @@
       case "volumechange":
         return 0;
       default:
+        // console.log(a);
         return f.call(this, a, b, c);
     }
   }
