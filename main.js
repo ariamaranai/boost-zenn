@@ -1,5 +1,6 @@
 Object.prototype.hasOwnProperty = function (a) { return a in this }
 Object.prototype.hasOwnProperty.call = (a, b) => b in a;
+Math.random = () => 0;
 {
   let f = EventTarget.prototype.addEventListener;
   EventTarget.prototype.addEventListener = function (a, b, c) {
@@ -56,7 +57,6 @@ Object.prototype.hasOwnProperty.call = (a, b) => b in a;
       case "volumechange":
         return 0;
       default:
-        // console.log(a);
         return f.call(this, a, b, c);
     }
   }
